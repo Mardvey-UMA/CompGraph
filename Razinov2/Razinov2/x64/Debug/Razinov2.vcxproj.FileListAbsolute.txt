@@ -2,3 +2,7 @@ C:\Users\chike\source\repos\Razinov2\Razinov2\x64\Debug\Razinov2.vcxproj.Assembl
 C:\Users\chike\source\repos\Razinov2\Razinov2\x64\Debug\Razinov2.vcxproj.SuggestedBindingRedirects.cache
 C:\Users\chike\source\repos\Razinov2\Razinov2\x64\Debug\Razinov2.MyForm.resources
 C:\Users\chike\source\repos\Razinov2\Razinov2\x64\Debug\Razinov2.vcxproj.GenerateResource.cache
+C:\compgraph_git\CompGraph\Razinov2\Razinov2\x64\Debug\Razinov2.vcxproj.AssemblyReference.cache
+C:\compgraph_git\CompGraph\Razinov2\Razinov2\x64\Debug\Razinov2.vcxproj.SuggestedBindingRedirects.cache
+C:\compgraph_git\CompGraph\Razinov2\Razinov2\x64\Debug\Razinov2.MyForm.resources
+C:\compgraph_git\CompGraph\Razinov2\Razinov2\x64\Debug\Razinov2.vcxproj.GenerateResource.cache
