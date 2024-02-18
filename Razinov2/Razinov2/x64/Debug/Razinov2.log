@@ -1,0 +1,9 @@
+﻿  MyForm.cpp
+C:\Users\chike\source\repos\Razinov2\Razinov2\MyForm.h(230,12): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+C:\Users\chike\source\repos\Razinov2\Razinov2\MyForm.h(231,12): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+C:\Users\chike\source\repos\Razinov2\Razinov2\MyForm.h(247,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\chike\source\repos\Razinov2\Razinov2\MyForm.h(254,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\chike\source\repos\Razinov2\Razinov2\MyForm.h(261,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\chike\source\repos\Razinov2\Razinov2\MyForm.h(268,22): warning C4018: <: несоответствие типов со знаком и без знака
+  MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  Razinov2.vcxproj -> C:\Users\chike\source\repos\Razinov2\x64\Debug\Razinov2.exe
