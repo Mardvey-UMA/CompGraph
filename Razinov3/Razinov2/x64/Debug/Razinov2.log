@@ -1,0 +1,9 @@
+﻿  MyForm.cpp
+C:\compgraph_git\CompGraph\Razinov3\Razinov2\MyForm.h(210,12): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+C:\compgraph_git\CompGraph\Razinov3\Razinov2\MyForm.h(211,12): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+C:\compgraph_git\CompGraph\Razinov3\Razinov2\MyForm.h(225,11): error C3861: translate: идентификатор не найден
+C:\compgraph_git\CompGraph\Razinov3\Razinov2\MyForm.h(225,32): error C3861: scale: идентификатор не найден
+C:\compgraph_git\CompGraph\Razinov3\Razinov2\MyForm.h(229,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\compgraph_git\CompGraph\Razinov3\Razinov2\MyForm.h(246,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\compgraph_git\CompGraph\Razinov3\Razinov2\MyForm.h(253,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\compgraph_git\CompGraph\Razinov3\Razinov2\MyForm.h(260,22): warning C4018: <: несоответствие типов со знаком и без знака
