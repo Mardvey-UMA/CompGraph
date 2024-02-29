@@ -1,0 +1,9 @@
+﻿  MyForm.cpp
+C:\compgraph_git\CompGraph\Razz3\Razinov2\MyForm.h(93,82): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\compgraph_git\CompGraph\Razz3\Razinov2\MyForm.h(93,67): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\compgraph_git\CompGraph\Razz3\Razinov2\MyForm.h(93,52): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\compgraph_git\CompGraph\Razz3\Razinov2\MyForm.h(242,17): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+C:\compgraph_git\CompGraph\Razz3\Razinov2\MyForm.h(243,17): warning C4244: инициализация: преобразование "int" в "float", возможна потеря данных
+C:\compgraph_git\CompGraph\Razz3\Razinov2\Matrix.h(66): warning C4172: возвращение адреса локальной или временной переменной
+  MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  Razinov2.vcxproj -> C:\compgraph_git\CompGraph\Razz3\x64\Debug\Razinov2.exe
