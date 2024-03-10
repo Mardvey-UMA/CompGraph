@@ -6,3 +6,7 @@ C:\compgraph_git\CompGraph\Razz3\Razinov2\x64\Debug\Razinov2.vcxproj.AssemblyRef
 C:\compgraph_git\CompGraph\Razz3\Razinov2\x64\Debug\Razinov2.vcxproj.SuggestedBindingRedirects.cache
 C:\compgraph_git\CompGraph\Razz3\Razinov2\x64\Debug\Razinov2.MyForm.resources
 C:\compgraph_git\CompGraph\Razz3\Razinov2\x64\Debug\Razinov2.vcxproj.GenerateResource.cache
+C:\cg\CompGraph\Razz3\Razinov2\x64\Debug\Razinov2.vcxproj.AssemblyReference.cache
+C:\cg\CompGraph\Razz3\Razinov2\x64\Debug\Razinov2.vcxproj.SuggestedBindingRedirects.cache
+C:\cg\CompGraph\Razz3\Razinov2\x64\Debug\Razinov2.MyForm.resources
+C:\cg\CompGraph\Razz3\Razinov2\x64\Debug\Razinov2.vcxproj.GenerateResource.cache
