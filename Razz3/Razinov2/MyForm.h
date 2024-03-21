@@ -56,9 +56,10 @@ namespace Razinov2 {
 			// 
 			// btnOpen
 			// 
-			this->btnOpen->Location = System::Drawing::Point(1036, 12);
+			this->btnOpen->Location = System::Drawing::Point(950, 13);
+			this->btnOpen->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnOpen->Name = L"btnOpen";
-			this->btnOpen->Size = System::Drawing::Size(225, 32);
+			this->btnOpen->Size = System::Drawing::Size(300, 39);
 			this->btnOpen->TabIndex = 0;
 			this->btnOpen->Text = L"Открыть";
 			this->btnOpen->UseVisualStyleBackColor = true;
@@ -66,13 +67,13 @@ namespace Razinov2 {
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1273, 824);
+			this->ClientSize = System::Drawing::Size(1263, 1014);
 			this->Controls->Add(this->btnOpen);
 			this->DoubleBuffered = true;
 			this->KeyPreview = true;
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
@@ -169,11 +170,15 @@ namespace Razinov2 {
 			break;
 		case Keys::Z: // увеличение в 1.1 раза
 			//
+			T = translate(-Wcx, -Wcy) * T; // перенос начала координат в (Wcx, Wcy)
 			T = scale(1.1f) * T;
+			T = translate(Wcx, Wcy) * T; // перенос начала координат в (Wcx, Wcy)
 			break;
 		case Keys::X: // уменьшение в 1.1 раз
 			//
-			T = scale(0.9f) * T;
+			T = translate(-Wcx, -Wcy) * T; 
+			T = scale((1. / 1.1f)) * T; // исправить 0.9
+			T = translate(Wcx, Wcy) * T;
 			break;
 		case Keys::U: // отражение отн Ox центр
 			//
@@ -188,19 +193,27 @@ namespace Razinov2 {
 			T = translate(Wcx, Wcy) * T;
 			break;
 		case Keys::I: // растяжение по X в 1.1 раз
+			T = translate(-Wcx, -Wcy) * T; // перенос начала координат в (Wcx, Wcy)
 			T = scale(1.1f, 1.f) * T;
+			T = translate(Wcx, Wcy) * T; // перенос начала координат в (Wcx, Wcy)
 			break;
 		case Keys::K: // сжатие по X в 1.1 раз
 			//
-			T = scale(0.9f, 1.f) * T;
+			T = translate(-Wcx, -Wcy) * T;
+			T = scale((1./1.1f), 1.f) * T; // исправить 0.9
+			T = translate(Wcx, Wcy) * T; 
 			break;
 		case Keys::O: // растяжение по Y в 1.1 раз
 			//
+			T = translate(-Wcx, -Wcy) * T; // перенос начала координат в (Wcx, Wcy)
 			T = scale(1.f, 1.1f) * T;
+			T = translate(Wcx, Wcy) * T; // перенос начала координат в (Wcx, Wcy)
 			break;
 		case Keys::L: // сжатие по Y в 1.1 раз
 			//
-			T = scale(1.f, 0.9f) * T;
+			T = translate(-Wcx, -Wcy) * T; // перенос начала координат в (Wcx, Wcy)
+			T = scale(1.f, (1. / 1.1f)) * T;
+			T = translate(Wcx, Wcy) * T; // перенос начала координат в (Wcx, Wcy)
 			break;
 		default:
 			break;
@@ -286,3 +299,28 @@ namespace Razinov2 {
 		   ///
 	};
 }
+/*
+1. Так как наши преобразования будут происходить в матричной форме,
+переведем наши координаты в однородные:(x,y,1.0);
+2. Из единичных матриц путем преобразования, например при переносе
+матрица определяется двумя параметрами Tx, Ty;
+3. Действия будут происходить зеркально, то есть нажимая вниз,
+изображение съезжает вниз и т.д.;
+4. Начального;
+5. Матрица, в которой накапливаются все преобразования, изначально -
+единичная матрица;
+6. Матрица зависит от одного параметра - theta, угол поворота, на главной
+диагонали косинусы, на побочной - синусы, причем во второй строке с
+минусом. Состоит из функций переноса начала координат(Translate) и
+функции поворота(Rotate);
+7. Для отзеркаливания изображения мы используем операцию
+масштабирования(Scale), в которой меняем координаты путем умножения
+их на -1;
+8. Масштабирование будет происходить относительно начала координат;
+9. Кодирование цвета с помощью цветов: красного, синего, зеленого. Меняя
+значения для каждого цвета, будем в общем получать новый цвет;
+10.В событии Paint функция FormArgb и заводить значения для каждого
+цвета;
+11. В нашем файле с координатами находятся коды цветов, которые
+считываются и окрашивают определенные линии
+*/
