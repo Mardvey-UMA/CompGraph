@@ -59,7 +59,7 @@ namespace Razinov2 {
 			// btnOpen
 			// 
 			this->btnOpen->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->btnOpen->Location = System::Drawing::Point(543, 12);
+			this->btnOpen->Location = System::Drawing::Point(984, 12);
 			this->btnOpen->Name = L"btnOpen";
 			this->btnOpen->Size = System::Drawing::Size(225, 32);
 			this->btnOpen->TabIndex = 0;
@@ -71,7 +71,7 @@ namespace Razinov2 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(780, 417);
+			this->ClientSize = System::Drawing::Size(1221, 685);
 			this->Controls->Add(this->btnOpen);
 			this->DoubleBuffered = true;
 			this->KeyPreview = true;
@@ -146,19 +146,19 @@ private: System::Void MyForm_Paint(System::Object^ sender, System::Windows::Form
 			T = initT;
 			break;
 		case Keys::Q:
-			T = translate(-Wcx, -Wcy) * T; // перенос начала координат в (Wcx, Wcy)
+			T = translate(-(Wx - left - right) / 2, -(Wy - bottom - top) / 2) * T; // перенос начала координат в (Wcx, Wcy)
 			T = rotate(0.01f) * T; // поворот на 0.01 радиан относительно
 			// нового центра
-			T = translate(Wcx, Wcy) * T; // перенос начала координат обратно
+			T = translate((Wx - left - right) / 2, (Wy - bottom - top) / 2) * T; // перенос начала координат обратно
 			break;
 		case Keys::W:
 			T = translate(0.f, -1.f) * T;
 			break;
 		case Keys::E: // поворот на 0.01 радиан по часовой стрелке
 			// 
-			T = translate(-Wcx, -Wcy) * T; // перенос начала координат в (Wcx, Wcy)
+			T = translate(-(Wx - left - right) / 2, -(Wy - bottom - top) / 2) * T; // перенос начала координат в (Vx, Vy)
 			T = rotate(-0.01f) * T; // поворот на 0.01 радиан относительно
-			T = translate(Wcx, Wcy) * T;
+			T = translate((Wx - left - right) / 2, (Wy - bottom - top) / 2) * T;
 			break;
 		case Keys::S: // свдиг вниз на 1 px
 			//
@@ -174,15 +174,19 @@ private: System::Void MyForm_Paint(System::Object^ sender, System::Windows::Form
 			break;
 		case Keys::R: // поворот по часовой на 0.05 радиан
 			//
-			T = translate(-Wcx, -Wcy) * T; // перенос начала координат в (Wcx, Wcy)
+			//T = translate(-Vx / 2, -Vy / 2) * T;
+			//T = translate(Wx / 2 + Wcx, Wcy - Wy / 2) * T; // перенос начала координат в (Vx, Vy)
+			T = translate(-(Wx - left - right) / 2, -(Wy - bottom - top) / 2) * T;
 			T = rotate(-0.05f) * T; // поворот на 0.01 радиан относительно
-			T = translate(Wcx, Wcy) * T;
+			T = translate((Wx - left - right) / 2, (Wy - bottom - top) / 2) * T;
+			//T = translate(-(Wx / 2 + Wcx), -(Wcy - Wy / 2)) * T;
+			//T = translate(Vx / 2, Vy / 2) * T;
 			break;
 		case Keys::Y: // поврот против часовой на 0.05 радиан
 			//
-			T = translate(-Wcx, -Wcy) * T; // перенос начала координат в (Wcx, Wcy)
+			T = translate(-(Wx - left - right) / 2, -(Wy - bottom - top) / 2) * T; // перенос начала координат в (Vx, Vy)
 			T = rotate(0.05f) * T; // поворот на 0.01 радиан относительно
-			T = translate(Wcx, Wcy) * T;
+			T = translate((Wx - left - right) / 2, (Wy - bottom - top) / 2) * T;
 			break;
 		case Keys::T: // сдвиг вверх на 10 px
 			//
@@ -202,38 +206,50 @@ private: System::Void MyForm_Paint(System::Object^ sender, System::Windows::Form
 			break;
 		case Keys::Z: // увеличение в 1.1 раза
 			//
+			T = translate(-(Wx - left - right) / 2, -(Wy - bottom - top) / 2) * T;
 			T = scale(1.1f) * T;
+			T = translate((Wx - left - right) / 2, (Wy - bottom - top) / 2) * T;
 			break;
 		case Keys::X: // уменьшение в 1.1 раз
 			//
-			T = scale(0.9f) * T;
+			T = translate(-(Wx - left - right) / 2, -(Wy - bottom - top) / 2) * T;
+			T = scale((1 / 1.1f)) * T;
+			T = translate((Wx - left - right) / 2, (Wy - bottom - top) / 2) * T;
 			break;
 		case Keys::U: // отражение отн Ox центр
 			//
-			T = translate(-Wcx, -Wcy) * T;
+			T = translate(-(Wx - left - right) / 2, -(Wy - bottom - top) / 2) * T;
 			T = mirrorX() * T;
-			T = translate(Wcx, Wcy) * T;
+			T = translate((Wx - left - right) / 2, (Wy - bottom - top) / 2) * T;
 			break;
 		case Keys::J: // отражение отн Oy центр
 			//
-			T = translate(-Wcx, -Wcy) * T;
+			T = translate(-(Wx - left - right) / 2, -(Wy - bottom - top) / 2) * T;
 			T = mirrorY() * T;
-			T = translate(Wcx, Wcy) * T;
+			T = translate((Wx - left - right) / 2, (Wy - bottom - top) / 2) * T;
 			break;
 		case Keys::I: // растяжение по X в 1.1 раз
+			T = translate(-(Wx - left - right) / 2, -(Wy - bottom - top) / 2) * T;
 			T = scale(1.1f, 1.f) * T;
+			T = translate((Wx - left - right) / 2, (Wy - bottom - top) / 2) * T;
 			break;
 		case Keys::K: // сжатие по X в 1.1 раз
 			//
-			T = scale(0.9f, 1.f) * T;
+			T = translate(-(Wx - left - right) / 2, -(Wy - bottom - top) / 2) * T;
+			T = scale((1/1.1f), 1.f) * T;
+			T = translate((Wx - left - right) / 2, (Wy - bottom - top) / 2) * T;
 			break;
 		case Keys::O: // растяжение по Y в 1.1 раз
 			//
+			T = translate(-(Wx - left - right) / 2, -(Wy - bottom - top) / 2) * T;
 			T = scale(1.f, 1.1f) * T;
+			T = translate((Wx - left - right) / 2, (Wy - bottom - top) / 2) * T;
 			break;
 		case Keys::L: // сжатие по Y в 1.1 раз
 			//
-			T = scale(1.f, 0.9f) * T;
+			T = translate(-(Wx - left - right) / 2, -(Wy - bottom - top) / 2) * T;
+			T = scale(1.f, (1 / 1.1f)) * T;
+			T = translate((Wx - left - right) / 2, (Wy - bottom - top) / 2) * T;
 			break;
 		default:
 			break;
